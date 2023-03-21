@@ -1,0 +1,2 @@
+# unity-cv-image-gallery
+ unity-cv-image-gallery is a Unity package that provides an interactive image gallery and a Scroll View prefab, designed to facilitate testing of computer vision applications, such as image classification, object detection, pose estimation, and style transfer. The image gallery allows users to select different images at runtime to test their models, offering customization options for image sizes and content panel adjustments.
