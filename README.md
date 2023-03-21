@@ -11,13 +11,24 @@ CVImageGallery is a Unity package that provides an interactive image gallery and
 
 ### Installation
 
-You can install the CVImageGallery package using the Unity Package Manager:
+#### Step 1: Install the UnityMediaDisplay package
+
+First, install the UnityMediaDisplay package using the Unity Package Manager:
 
 1. Open your Unity project.
 2. Go to Window > Package Manager.
 3. Click the "+" button in the top left corner, and choose "Add package from git URL..."
-4. Enter the GitHub repository URL: `https://github.com/cj-mills/unity-cv-image-gallery.git`
-5. Click "Add". The package will be added to your project.
+4. Enter the GitHub repository URL: `https://github.com/cj-mills/Unity-Media-Display.git`
+5. Click "Add". The UnityMediaDisplay package will be added to your project.
+
+#### Step 2: Install the CVImageGallery package
+
+After installing the UnityMediaDisplay package, install the CVImageGallery package:
+
+1. Go back to the Unity Package Manager.
+2. Click the "+" button in the top left corner, and choose "Add package from git URL..."
+3. Enter the GitHub repository URL: `https://github.com/cj-mills/unity-cv-image-gallery.git`
+4. Click "Add". The CVImageGallery package will be added to your project.
 
 For Unity versions older than 2021.1, add the Git URL to the `manifest.json` file in your project's `Packages` folder as a dependency:
 
