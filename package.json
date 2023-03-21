@@ -1,0 +1,27 @@
+{
+    "name": "com.cj-mills.cv-image-gallery",
+    "displayName": "CV Image Gallery",
+    "version": "1.0.0",
+    "unity": "2020.3",
+    "description": "CVImageGallery is a Unity package that provides an interactive image gallery and a Scroll View prefab, designed to facilitate testing of computer vision applications, such as image classification, object detection, pose estimation, and style transfer. The image gallery allows users to select different images at runtime to test their models, offering customization options for image sizes and content panel adjustments.",
+    "keywords": [
+        "unity",
+        "image gallery",
+        "display",
+        "demo",
+        "image"
+    ],
+    "author": {
+        "name": "Christian Mills",
+        "email": "christian@christianjmills.com",
+        "url": "https://christianjmills.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cj-mills/unity-cv-image-gallery.git"
+    },
+    "dependencies": {
+        "com.cj-mills.unity-media-display": "https://github.com/cj-mills/Unity-Media-Display.git"
+    },
+    "license": "MIT"
+}
