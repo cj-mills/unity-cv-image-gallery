@@ -1,7 +1,8 @@
 {
-    "name": "CVGallery",
-    "references": [],
-    "optionalUnityReferences": [],
+    "name": "CVImageGallery",
+    "references": [
+        "UnityMediaDisplay"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
