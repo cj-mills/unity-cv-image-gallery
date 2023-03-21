@@ -21,7 +21,7 @@
         "url": "https://github.com/cj-mills/unity-cv-image-gallery.git"
     },
     "dependencies": {
-        "com.cj-mills.unity-media-display": "1.0.0"
+        "com.cj-mills.unity-media-display": "https://github.com/cj-mills/Unity-Media-Display.git#main"
     },
     "license": "MIT"
 }
