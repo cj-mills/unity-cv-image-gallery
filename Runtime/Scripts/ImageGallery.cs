@@ -22,24 +22,12 @@ namespace CVGallery
         public float spacing = 5f;
         public float specifiedWidth = 100f;
 
-        void Start()
+        private void Start()
         {
             SetupContentPanel();
             PopulateImageGallery();
             AdjustContentHeight();
-
-            Image[] images = transform.GetComponentsInChildren<Image>();
-
-            foreach (Image image in images)
-            {
-                Button button = image.GetComponent<Button>();
-                if (button == null)
-                {
-                    button = image.gameObject.AddComponent<Button>();
-                }
-
-                button.onClick.AddListener(() => MediaDisplayManager.UpdateScreenTexture(screenObject, image.mainTexture, cameraObject, false));
-            }
+            AssignButtonClickEvents();
         }
 
         /// <summary>
@@ -93,7 +81,24 @@ namespace CVGallery
             totalHeight += spacing * (contentPanelRectTransform.childCount - 1);
             contentPanelRectTransform.sizeDelta = new Vector2(contentPanelRectTransform.sizeDelta.x, totalHeight);
         }
+
+        /// <summary>
+        /// Assigns click events to the images in the gallery to update the screen texture when clicked.
+        /// </summary>
+        private void AssignButtonClickEvents()
+        {
+            Image[] images = transform.GetComponentsInChildren<Image>();
+
+            foreach (Image image in images)
+            {
+                Button button = image.GetComponent<Button>();
+                if (button == null)
+                {
+                    button = image.gameObject.AddComponent<Button>();
+                }
+
+                button.onClick.AddListener(() => MediaDisplayManager.UpdateScreenTexture(screenObject, image.mainTexture, cameraObject, false));
+            }
+        }
     }
-
 }
-
