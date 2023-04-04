@@ -9,16 +9,20 @@ public class PackageAutoInstaller
 
     static PackageAutoInstaller()
     {
-        Events.registeredPackages += OnPackageInstalled;
+        Events.registeredPackages += OnRegisteredPackages;
     }
 
-    private static void OnPackageInstalled(PackageInfo packageInfo)
+    private static void OnRegisteredPackages(PackageRegistrationEventArgs eventArgs)
     {
-        Debug.Log("OnPackageInstalled");
-        if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
+        Debug.Log("OnRegisteredPackages");
+        foreach (var packageInfo in eventArgs.added)
         {
-            isInstallationTriggered = true;
-            PackageInstaller.InstallDependencies();
+            if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
+            {
+                isInstallationTriggered = true;
+                PackageInstaller.InstallDependencies();
+                break;
+            }
         }
     }
 }
