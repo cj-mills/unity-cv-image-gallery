@@ -8,12 +8,12 @@ public class PackageAutoInstaller
 
     static PackageAutoInstaller()
     {
-        Events.PackageRegistryUpdated += OnPackageRegistryUpdated;
+        Events.registeredPackages += OnRegisteredPackages;
     }
 
-    private static void OnPackageRegistryUpdated(PackageRegistrationEventArgs args)
+    private static void OnRegisteredPackages(PackageInfo[] packages)
     {
-        foreach (var package in args.added)
+        foreach (var package in packages)
         {
             if (package.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
             {
