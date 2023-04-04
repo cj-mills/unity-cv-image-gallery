@@ -11,7 +11,7 @@ public class PackageAutoInstaller
         Events.registeredPackages += OnRegisteredPackages;
     }
 
-    private static void OnRegisteredPackages(PackageInfo[] packages)
+    private static void OnRegisteredPackages(UnityEditor.PackageManager.PackageInfo[] packages)
     {
         foreach (var package in packages)
         {
