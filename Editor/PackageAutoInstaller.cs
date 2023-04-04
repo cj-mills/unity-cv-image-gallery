@@ -1,5 +1,5 @@
-// using UnityEditor;
-// using PackageInfo = UnityEditor.PackageManager.PackageInfo;
+using UnityEditor;
+using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
