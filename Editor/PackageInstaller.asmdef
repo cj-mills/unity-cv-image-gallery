@@ -1,8 +1,5 @@
 {
     "name": "PackageInstaller",
-    "references": [
-        "UnityEditor"
-    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
