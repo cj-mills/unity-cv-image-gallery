@@ -50,5 +50,7 @@ public class PackageInstallListener
         }
 
         listRequest = null;
+
+        EditorApplication.update -= CheckPackageInstallation;
     }
 }
