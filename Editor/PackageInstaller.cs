@@ -8,13 +8,13 @@ public class PackageInstaller
     private static AddRequest addRequest;
 
     [InitializeOnLoadMethod]
-    private static void InstallDependencies()
+    public static void InstallDependencies()
     {
         string packageUrl = "https://github.com/cj-mills/Unity-Media-Display.git";
 
         if (!IsPackageInstalled("com.cj-mills.unity-media-display"))
         {
-            Debug.Log("Attempting to install package.");
+            // Debug.Log("Attempting to install package.");
             addRequest = Client.Add(packageUrl);
             EditorApplication.update += PackageInstallationProgress;
         }
