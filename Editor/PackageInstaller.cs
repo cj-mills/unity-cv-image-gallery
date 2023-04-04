@@ -3,11 +3,12 @@ using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
+[InitializeOnLoadAttribute]
 public class PackageInstaller
 {
     private static AddRequest addRequest;
 
-    [InitializeOnLoadAttribute]
+    [InitializeOnLoadMethod]
     public static void InstallDependencies()
     {
         string packageUrl = "https://github.com/cj-mills/Unity-Media-Display.git";
