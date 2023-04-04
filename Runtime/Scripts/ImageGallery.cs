@@ -105,5 +105,5 @@ namespace CVGallery
     }
 }
 #else
-Debug.LogWarning("Dependency not installed.");
+
 #endif
