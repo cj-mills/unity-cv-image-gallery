@@ -3,6 +3,7 @@ using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
+[InitializeOnLoad]
 public class PackageInstaller
 {
     private static AddRequest addRequest;
