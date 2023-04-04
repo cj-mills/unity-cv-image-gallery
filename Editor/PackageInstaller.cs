@@ -8,7 +8,7 @@ public class PackageInstaller
 {
     private static AddRequest addRequest;
 
-    public static void PackageInstaller()
+    static PackageInstaller()
     {
         string packageUrl = "https://github.com/cj-mills/Unity-Media-Display.git";
 
