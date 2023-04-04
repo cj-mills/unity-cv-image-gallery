@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#if EXAMPLE_PACKAGE_INSTALLED
+#if CJM_UNITY_MEDIA_DISPLAY
 using MediaDisplay;
 
 namespace CVGallery
@@ -104,6 +104,4 @@ namespace CVGallery
         }
     }
 }
-#else
-
 #endif
