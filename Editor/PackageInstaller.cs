@@ -7,7 +7,7 @@ public class PackageInstaller
 {
     private static AddRequest addRequest;
 
-    [InitializeOnLoadMethod]
+    [InitializeOnLoadAttribute]
     public static void InstallDependencies()
     {
         string packageUrl = "https://github.com/cj-mills/Unity-Media-Display.git";
