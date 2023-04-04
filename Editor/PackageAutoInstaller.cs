@@ -1,25 +1,22 @@
 using UnityEditor;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class PackageAutoInstaller : AssetPostprocessor
+public class PackageAutoInstaller
 {
     private static bool isInstallationTriggered;
 
-    // This method will be called after any asset has been imported
-    private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+    static PackageAutoInstaller()
     {
-        // Check if the CVImageGallery package has been imported
-        foreach (string asset in importedAssets)
+        Events.registered += OnPackageRegistered;
+    }
+
+    private static void OnPackageRegistered(PackageInfo packageInfo)
+    {
+        if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
         {
-            if (asset.Contains("com.cj-mills.cv-image-gallery"))
-            {
-                if (!isInstallationTriggered)
-                {
-                    isInstallationTriggered = true;
-                    PackageInstaller.InstallDependencies();
-                }
-                break;
-            }
+            isInstallationTriggered = true;
+            PackageInstaller.InstallDependencies();
         }
     }
 }
