@@ -14,6 +14,7 @@ public class PackageAutoInstaller
 
     private static void OnPackageInstalled(PackageInfo packageInfo)
     {
+        Debug.Log("OnPackageInstalled");
         if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
         {
             isInstallationTriggered = true;
