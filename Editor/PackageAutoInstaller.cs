@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class PackageAutoInstaller
 {
-    private static bool isInstallationTriggered;
+    // private static bool isInstallationTriggered;
 
-    static PackageAutoInstaller()
-    {
-        Events.packageInstalled += OnPackageInstalled;
-    }
+    // static PackageAutoInstaller()
+    // {
+    //     Events.packageInstalled += OnPackageInstalled;
+    // }
 
-    private static void OnPackageInstalled(PackageInfo packageInfo)
-    {
-        if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
-        {
-            isInstallationTriggered = true;
-            PackageInstaller.InstallDependencies();
-        }
-    }
+    // private static void OnPackageInstalled(PackageInfo packageInfo)
+    // {
+    //     if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
+    //     {
+    //         isInstallationTriggered = true;
+    //         PackageInstaller.InstallDependencies();
+    //     }
+    // }
 }
