@@ -11,7 +11,7 @@ public class PackageAutoInstaller
         Events.registered += OnPackageRegistered;
     }
 
-    private static void OnPackageRegistered(PackageInfo packageInfo)
+    private static void OnPackageRegistered(UnityEditor.PackageManager.PackageInfo packageInfo)
     {
         if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
         {
