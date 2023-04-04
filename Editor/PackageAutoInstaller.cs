@@ -8,15 +8,19 @@ public class PackageAutoInstaller
 
     static PackageAutoInstaller()
     {
-        Events.registered += OnPackageRegistered;
+        Events.PackageRegistryUpdated += OnPackageRegistryUpdated;
     }
 
-    private static void OnPackageRegistered(UnityEditor.PackageManager.PackageInfo packageInfo)
+    private static void OnPackageRegistryUpdated(PackageRegistrationEventArgs args)
     {
-        if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
+        foreach (var package in args.added)
         {
-            isInstallationTriggered = true;
-            PackageInstaller.InstallDependencies();
+            if (package.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
+            {
+                isInstallationTriggered = true;
+                PackageInstaller.InstallDependencies();
+                break;
+            }
         }
     }
 }
