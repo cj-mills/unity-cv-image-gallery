@@ -3,7 +3,6 @@ using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
-[InitializeOnLoad]
 public class PackageInstaller
 {
     private static AddRequest addRequest;
@@ -11,6 +10,8 @@ public class PackageInstaller
     [InitializeOnLoadMethod]
     public static void InstallDependencies()
     {
+        Debug.Log("InstallDependencies called.");
+
         string packageUrl = "https://github.com/cj-mills/Unity-Media-Display.git";
 
         if (!IsPackageInstalled("com.cj-mills.unity-media-display"))
