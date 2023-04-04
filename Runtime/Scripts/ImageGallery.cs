@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+#if EXAMPLE_PACKAGE_INSTALLED
 using MediaDisplay;
 
 namespace CVGallery
@@ -102,3 +104,6 @@ namespace CVGallery
         }
     }
 }
+#else
+Debug.LogWarning("Dependency not installed.");
+#endif
