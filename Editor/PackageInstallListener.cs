@@ -15,6 +15,8 @@ public class PackageInstallListener
 
     private static void CheckPackageInstallation()
     {
+        Debug.Log("Here");
+
         if (listRequest == null)
         {
             listRequest = Client.List(true, true);
