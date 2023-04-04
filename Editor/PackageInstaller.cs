@@ -1,24 +1,22 @@
 using UnityEditor;
 using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
+using UnityEngine;
 
 public class PackageInstaller
 {
     private static AddRequest addRequest;
 
-    [MenuItem("Tools/Install CV Image Gallery Dependencies")]
-    public static void InstallDependencies()
+    [InitializeOnLoadMethod]
+    private static void InstallDependencies()
     {
         string packageUrl = "https://github.com/cj-mills/Unity-Media-Display.git";
 
         if (!IsPackageInstalled("com.cj-mills.unity-media-display"))
         {
+            Debug.Log("Attempting to install package.");
             addRequest = Client.Add(packageUrl);
             EditorApplication.update += PackageInstallationProgress;
-        }
-        else
-        {
-            UnityEngine.Debug.Log("Dependency is already installed.");
         }
     }
 
