@@ -1,5 +1,4 @@
 using UnityEditor;
-using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
@@ -9,10 +8,10 @@ public class PackageAutoInstaller
 
     static PackageAutoInstaller()
     {
-        Events.packageRegistered += OnPackageRegistered;
+        Events.packageInstalled += OnPackageInstalled;
     }
 
-    private static void OnPackageRegistered(PackageInfo packageInfo)
+    private static void OnPackageInstalled(PackageInfo packageInfo)
     {
         if (packageInfo.name == "com.cj-mills.cv-image-gallery" && !isInstallationTriggered)
         {
