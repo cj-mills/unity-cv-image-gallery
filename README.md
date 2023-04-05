@@ -18,7 +18,7 @@ First, install the UnityMediaDisplay package using the Unity Package Manager:
 1. Open your Unity project.
 2. Go to Window > Package Manager.
 3. Click the "+" button in the top left corner, and choose "Add package from git URL..."
-4. Enter the GitHub repository URL: `https://github.com/cj-mills/Unity-Media-Display.git`
+4. Enter the GitHub repository URL: `https://github.com/cj-mills/unity-media-display.git`
 5. Click "Add". The UnityMediaDisplay package will be added to your project.
 
 #### Step 2: Install the CVImageGallery package
@@ -35,7 +35,7 @@ For Unity versions older than 2021.1, add the Git URL to the `manifest.json` fil
 ```json
 {
   "dependencies": {
-    "com.cj-mills.cv-image-gallery": "https://github.com/cj-mills/Unity-Media-Display.git",
+    "com.cj-mills.cv-image-gallery": "https://github.com/cj-mills/unity-media-display.git",
     // other dependencies...
   }
 }
