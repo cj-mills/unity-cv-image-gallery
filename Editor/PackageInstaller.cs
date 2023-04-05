@@ -15,7 +15,7 @@ namespace CVGallery
         {
             // Debug.Log("InstallDependencies called.");
 
-            string packageUrl = "https://github.com/cj-mills/Unity-Media-Display.git";
+            string packageUrl = "https://github.com/cj-mills/unity-media-display.git";
 
             if (!IsPackageInstalled("com.cj-mills.unity-media-display"))
             {
