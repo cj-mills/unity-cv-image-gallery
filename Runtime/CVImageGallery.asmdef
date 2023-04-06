@@ -1,5 +1,5 @@
 {
-    "name": "CVImageGallery",
+    "name": "CJM.CVImageGallery",
     "references": [
         "CJM.UnityMediaDisplay"
     ],
