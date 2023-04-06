@@ -1,7 +1,7 @@
 {
     "name": "CVImageGallery",
     "references": [
-        "UnityMediaDisplay"
+        "CJM.UnityMediaDisplay"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
