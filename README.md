@@ -35,7 +35,7 @@ For Unity versions older than 2021.1, add the Git URL to the `manifest.json` fil
 ```json
 {
   "dependencies": {
-    "com.cj-mills.cv-image-gallery": "https://github.com/cj-mills/unity-media-display.git",
+    "com.cj-mills.cv-image-gallery": "https://github.com/cj-mills/unity-cv-image-gallery.git",
     // other dependencies...
   }
 }
