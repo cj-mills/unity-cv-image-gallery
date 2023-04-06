@@ -3,7 +3,7 @@ using UnityEditor.PackageManager;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
-namespace CVGallery
+namespace CJM.CVGallery
 {
     public class PackageInstaller
     {
