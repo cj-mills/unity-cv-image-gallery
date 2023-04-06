@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 #if CJM_UNITY_MEDIA_DISPLAY
-using MediaDisplay;
+using CJM.MediaDisplay;
 
-namespace CVGallery
+namespace CJM.CVGallery
 {
     // This class handles the functionality of an image gallery,
     // allowing the user to select an image and display it on the specified screen.
