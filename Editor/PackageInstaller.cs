@@ -5,23 +5,51 @@ using UnityEngine;
 
 namespace CJM.CVGallery
 {
+    [System.Serializable]
+    public class PackageData
+    {
+        public string packageName;
+        public string packageUrl;
+    }
+
+    [System.Serializable]
+    public class PackageList
+    {
+        public List<PackageData> packages;
+    }
+
     public class PackageInstaller
     {
         private static AddRequest addRequest;
-        private const string CustomDefineSymbol = "CJM_CV_IMAGE_GALLERY";
+        private static List<PackageData> packagesToInstall;
+        private static int currentPackageIndex;
+
+        private const string PackagesJSONGUID = "f0b282a4fbb4473584f52e3fd0ab3087";
 
         [InitializeOnLoadMethod]
         public static void InstallDependencies()
         {
-            // Debug.Log("InstallDependencies called.");
+            packagesToInstall = ReadPackageJson().packages;
+            currentPackageIndex = 0;
 
-            string packageUrl = "https://github.com/cj-mills/unity-media-display.git";
+            InstallNextPackage();
+        }
 
-            if (!IsPackageInstalled("com.cj-mills.unity-media-display"))
+        private static void InstallNextPackage()
+        {
+            if (currentPackageIndex < packagesToInstall.Count)
             {
-                // Debug.Log("Attempting to install package.");
-                addRequest = Client.Add(packageUrl);
-                EditorApplication.update += PackageInstallationProgress;
+                PackageData packageData = packagesToInstall[currentPackageIndex];
+                if (!IsPackageInstalled(packageData.packageName))
+                {
+                    addRequest = Client.Add(packageData.packageUrl);
+                    EditorApplication.update += PackageInstallationProgress;
+                }
+                else
+                {
+                    currentPackageIndex++;
+                    InstallNextPackage();
+                }
             }
         }
 
@@ -32,7 +60,6 @@ namespace CJM.CVGallery
                 if (addRequest.Status == StatusCode.Success)
                 {
                     UnityEngine.Debug.Log($"Successfully installed: {addRequest.Result.packageId}");
-                    AddCustomDefineSymbol(); // Add the custom define symbol after successful installation
                 }
                 else if (addRequest.Status >= StatusCode.Failure)
                 {
@@ -40,19 +67,8 @@ namespace CJM.CVGallery
                 }
 
                 EditorApplication.update -= PackageInstallationProgress;
-            }
-        }
-
-        private static void AddCustomDefineSymbol()
-        {
-            var buildTargetGroup = EditorUserBuildSettings.selectedBuildTargetGroup;
-            var defines = PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup);
-
-            if (!defines.Contains(CustomDefineSymbol))
-            {
-                defines += $";{CustomDefineSymbol}";
-                PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, defines);
-                Debug.Log($"Added custom define symbol '{CustomDefineSymbol}' to the project.");
+                currentPackageIndex++;
+                InstallNextPackage();
             }
         }
 
@@ -63,13 +79,7 @@ namespace CJM.CVGallery
 
             if (listRequest.Status == StatusCode.Success)
             {
-                foreach (var package in listRequest.Result)
-                {
-                    if (package.name == packageName)
-                    {
-                        return true;
-                    }
-                }
+                return listRequest.Result.Any(package => package.name == packageName);
             }
             else
             {
@@ -78,5 +88,14 @@ namespace CJM.CVGallery
 
             return false;
         }
+
+        private static PackageList ReadPackageJson()
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath(PackagesJSONGUID);
+            string jsonString = File.ReadAllText(assetPath);
+            return JsonUtility.FromJson<PackageList>(jsonString);
+        }
+
+
     }
 }
