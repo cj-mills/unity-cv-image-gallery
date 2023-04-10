@@ -19,7 +19,7 @@ namespace CJM.CVGallery
 
             if (!IsPackageInstalled("com.cj-mills.unity-media-display"))
             {
-                Debug.Log("Attempting to install package.");
+                // Debug.Log("Attempting to install package.");
                 addRequest = Client.Add(packageUrl);
                 EditorApplication.update += PackageInstallationProgress;
             }
