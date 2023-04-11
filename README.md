@@ -4,7 +4,7 @@ CVImageGallery is a Unity package that provides an interactive image gallery and
 
 
 ## Demo Video
-https://user-images.githubusercontent.com/9126128/231288868-2116cc3a-ebbe-4b43-9305-30fea6887bf4.mp4
+https://user-images.githubusercontent.com/9126128/230750644-6f234dfc-27dc-40e2-a354-286b1e38dcf6.mp4
 
 
 
