@@ -8,6 +8,16 @@ https://user-images.githubusercontent.com/9126128/230750644-6f234dfc-27dc-40e2-a
 
 
 
+## Demo Projects
+
+| GitHub Repository                                            | Description                                                |
+| ------------------------------------------------------------ | ---------------------------------------------------------- |
+| [barracuda-image-classification-demo](https://github.com/cj-mills/barracuda-image-classification-demo) | Perform image classification using computer vision models. |
+| [barracuda-inference-yolox-demo](https://github.com/cj-mills/barracuda-inference-yolox-demo) | Perform object detection using YOLOX models.               |
+| [barracuda-inference-posenet-demo](https://github.com/cj-mills/barracuda-inference-posenet-demo) | Perform 2D human pose estimation using PoseNet models.     |
+
+
+
 ## Getting Started
 
 ### Prerequisites
