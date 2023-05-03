@@ -60,13 +60,18 @@ namespace CJM.CVGallery
         {
             foreach (Sprite sprite in imageSprites)
             {
+                // Instantiates a new GameObject using the imagePrefab
                 GameObject newImageObject = Instantiate(imagePrefab, contentPanel.transform);
                 Image newImage = newImageObject.GetComponent<Image>();
                 newImageObject.SetActive(true);
+                // Assign the curent sprite
                 newImage.sprite = sprite;
+                // Preserves the aspect ratio
                 newImage.preserveAspect = true;
+                // Use  the sprite's name for easier identification
                 newImageObject.name = sprite.name;
 
+                // Adjust the image size based on the specified width
                 RectTransform rectTransform = newImageObject.GetComponent<RectTransform>();
                 float aspectRatio = sprite.rect.height / sprite.rect.width;
                 rectTransform.sizeDelta = new Vector2(specifiedWidth, specifiedWidth * aspectRatio);
@@ -81,13 +86,16 @@ namespace CJM.CVGallery
             RectTransform contentPanelRectTransform = contentPanel.GetComponent<RectTransform>();
             float totalHeight = 0f;
 
+            // Calculate the total height of all the images in the gallery
             for (int i = 0; i < contentPanelRectTransform.childCount; i++)
             {
                 RectTransform childRect = contentPanelRectTransform.GetChild(i).GetComponent<RectTransform>();
                 totalHeight += childRect.sizeDelta.y;
             }
 
+            // Add the spacing between the images to the total height
             totalHeight += spacing * (contentPanelRectTransform.childCount - 1);
+            // Updates the content panel to accommodate the total height
             contentPanelRectTransform.sizeDelta = new Vector2(contentPanelRectTransform.sizeDelta.x, totalHeight);
         }
 
@@ -100,12 +108,14 @@ namespace CJM.CVGallery
 
             foreach (Image image in images)
             {
+                // Add a Button component if the image doesn't already have one
                 Button button = image.GetComponent<Button>();
                 if (button == null)
                 {
                     button = image.gameObject.AddComponent<Button>();
                 }
 
+                // Add a listener to update the screen texture to display the selected image when clicked
                 button.onClick.AddListener(() => MediaDisplayManager.UpdateScreenTexture(screenObject, image.mainTexture, cameraObject, false));
             }
         }
