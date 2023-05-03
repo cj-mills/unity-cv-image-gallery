@@ -13,22 +13,29 @@ namespace CJM.CVGallery
     {
         [Header("Scene")]
         [Tooltip("The screen GameObject where the selected image will be displayed")]
-        public GameObject screenObject;
+        [SerializeField] private GameObject screenObject;
         [Tooltip("The camera GameObject used to display the selected image")]
-        public GameObject cameraObject;
+        [SerializeField] private GameObject cameraObject;
         [Tooltip("The content panel GameObject where the image gallery is located")]
-        public GameObject contentPanel;
+        [SerializeField] private GameObject contentPanel;
         [Tooltip("The image prefab used to create each image in the gallery")]
-        public GameObject imagePrefab;
-        public List<Sprite> imageSprites;
-        public float spacing = 5f;
-        public float specifiedWidth = 100f;
+        [SerializeField] private GameObject imagePrefab;
+        [Tooltip("A list of sprites to populate the image gallery.")]
+        [SerializeField] private List<Sprite> imageSprites;
+        [Tooltip(" The spacing between images in the gallery.")]
+        [SerializeField] private float spacing = 5f;
+        [Tooltip("The specified width for each image in the gallery.")]
+        [SerializeField] private float specifiedWidth = 100f;
 
         private void Start()
         {
+            // Configures the content panel with a VerticalLayoutGroup component.
             SetupContentPanel();
+            // Populates the gallery with images using the provided sprites.
             PopulateImageGallery();
+            // Adjusts the content panel height by summing the vertical dimensions of all gallery images and spacing.
             AdjustContentHeight();
+            // Assigns click events to the images in the gallery to update the screen texture.
             AssignButtonClickEvents();
         }
 
