@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace CJM.CVGallery
 {
+    // Serializable class to hold package data
     [System.Serializable]
     public class PackageData
     {
@@ -15,20 +16,24 @@ namespace CJM.CVGallery
         public string packageUrl;
     }
 
+    // Serializable class to hold a list of PackageData objects
     [System.Serializable]
     public class PackageList
     {
         public List<PackageData> packages;
     }
 
+    // Class responsible for installing a list of packages defined in a JSON file
     public class PackageInstaller
     {
         private static AddRequest addRequest;
         private static List<PackageData> packagesToInstall;
         private static int currentPackageIndex;
 
+        // GUID of the JSON file containing the list of packages to install
         private const string PackagesJSONGUID = "f0b282a4fbb4473584f52e3fd0ab3087";
 
+        // Method called on load to install packages from the JSON file
         [InitializeOnLoadMethod]
         public static void InstallDependencies()
         {
@@ -38,6 +43,7 @@ namespace CJM.CVGallery
             InstallNextPackage();
         }
 
+        // Method to install the next package in the list
         private static void InstallNextPackage()
         {
             if (currentPackageIndex < packagesToInstall.Count)
@@ -56,6 +62,7 @@ namespace CJM.CVGallery
             }
         }
 
+        // Method to monitor the progress of package installation
         private static void PackageInstallationProgress()
         {
             if (addRequest.IsCompleted)
@@ -75,6 +82,7 @@ namespace CJM.CVGallery
             }
         }
 
+        // Method to check if a package is already installed
         private static bool IsPackageInstalled(string packageName)
         {
             var listRequest = Client.List(true, false);
@@ -92,13 +100,12 @@ namespace CJM.CVGallery
             return false;
         }
 
+        // Method to read the JSON file and return a PackageList object
         private static PackageList ReadPackageJson()
         {
             string assetPath = AssetDatabase.GUIDToAssetPath(PackagesJSONGUID);
             string jsonString = File.ReadAllText(assetPath);
             return JsonUtility.FromJson<PackageList>(jsonString);
         }
-
-
     }
 }
